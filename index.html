@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
+</head>
+<body>
+
+<h1>Escape Room</h1>
+
+<p>Gib deinen Code ein:</p>
+
+<input id="code" type="text">
+<button onclick="checkCode()">Prüfen</button>
+
+<p id="result"></p>
+
+<script>
+const codes = {
+  "826": "Das Ziel ist oft näher, als man denkt. Sucht den stillen Nachbarn dieses Ortes.",
+  "864": "Wo kleine weiße Bälle über den Tisch tanzen, wächst ein Baum, der an Weihnachten glänzt.",
+  "816": "An einem Ort nur für euch treffen sich Könige, Damen und Pferde.",
+  "125": "Vor den Hallen der Schraubendreher wächst die dornige Königin der Blumen.",
+  "144": "Ob Sonne oder Regen – eine wartet immer auf Besuch."
+};
+
+function checkCode() {
+  const code = document.getElementById("code").value.trim();
+
+  if (codes[code]) {
+    document.getElementById("result").innerText = codes[code];
+  } else {
+    document.getElementById("result").innerText = "Falscher Code.";
+  }
+}
+</script>
+
+</body>
+</html>
