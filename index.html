@@ -22,11 +22,9 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1 {
-    text-align: center;
-}
+h1 { text-align: center; }
 
-input {
+input, button {
     width: 100%;
     padding: 12px;
     font-size: 18px;
@@ -34,12 +32,7 @@ input {
     margin-bottom: 10px;
 }
 
-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    cursor: pointer;
-}
+button { cursor: pointer; }
 
 #result {
     margin-top: 20px;
@@ -57,9 +50,16 @@ button {
     background: #f2dede;
     border: 1px solid #e0b4b4;
 }
-</style>
 
+.hinweisbild {
+    width: 100%;
+    max-width: 650px;
+    margin: 15px 0;
+    border: 2px solid #333;
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
@@ -83,38 +83,69 @@ Bei korrekter Lösung erscheint der nächste Hinweis.
 
 const codes = {
 
-"826": "Das Ziel ist oft näher, als man denkt. Sucht den stillen Nachbarn dieses Ortes. Dort wartet das nächste Rätsel.",
+"826": `
+<strong>Richtig!</strong><br><br>
 
-"864": "Wo kleine weiße Bälle über den Tisch tanzen, wächst ein Baum, der an Weihnachten in vielen Häusern glänzt. Dort wartet das nächste Rätsel.",
+<h2>📰 Neue Spur freigeschaltet</h2>
 
-"816": "An einem Ort nur für euch treffen sich Könige, Damen und Pferde zum Kampf auf Schwarz und Weiß. Dort wartet das nächste Rätsel.",
+<p>
+Ihr findet einen alten Zeitungsartikel aus dem Jahr 1999.
+</p>
 
-"125": "Vor den Hallen der Schraubendreher, Zangen und Kabel wächst die dornige Königin der Blumen. Dort findet ihr das nächste Rätsel.",
+<img src="max-richter-zeitung.png" class="hinweisbild" alt="Zeitungsartikel über Max Richter">
 
-"144": "Ob Sonne, ob Regen, bei eisiger Kälte oder praller Hitze, eine wartet immer auf dem Hof auf Besuch. Setzt euch zu ihr und sucht nach dem nächsten Hinweis."
+<h3>Ermittlungsfragen</h3>
+
+<ul>
+<li>Warum könnte Max Richter verschwunden sein?</li>
+<li>Welchen Konflikt hatte er mit der Schulleitung?</li>
+<li>Was wollte er im Bereich der Labore herausfinden?</li>
+<li>Hat sein Verschwinden etwas mit der Hein-Möller-Schule zu tun?</li>
+</ul>
+
+<hr>
+
+<p><strong>Nächster Hinweis:</strong><br>
+Das Ziel ist oft näher, als man denkt. Sucht den stillen Nachbarn dieses Ortes. Dort wartet das nächste Rätsel.
+</p>
+`,
+
+"864": `
+<strong>Richtig!</strong><br><br>
+Wo kleine weiße Bälle über den Tisch tanzen, wächst ein Baum, der an Weihnachten in vielen Häusern glänzt. Dort wartet das nächste Rätsel.
+`,
+
+"816": `
+<strong>Richtig!</strong><br><br>
+An einem Ort nur für euch treffen sich Könige, Damen und Pferde zum Kampf auf Schwarz und Weiß. Dort wartet das nächste Rätsel.
+`,
+
+"125": `
+<strong>Richtig!</strong><br><br>
+Vor den Hallen der Schraubendreher, Zangen und Kabel wächst die dornige Königin der Blumen. Dort findet ihr das nächste Rätsel.
+`,
+
+"144": `
+<strong>Richtig!</strong><br><br>
+Ob Sonne, ob Regen, bei eisiger Kälte oder praller Hitze, eine wartet immer auf dem Hof auf Besuch. Setzt euch zu ihr und sucht nach dem nächsten Hinweis.
+`
 
 };
 
 function checkCode() {
 
     const code = document.getElementById("code").value.trim();
-
     const result = document.getElementById("result");
 
     if (codes[code]) {
-
         result.className = "success";
         result.style.display = "block";
-        result.innerHTML =
-            "<strong>Richtig!</strong><br><br>" + codes[code];
-
+        result.innerHTML = codes[code];
     } else {
-
         result.className = "error";
         result.style.display = "block";
         result.innerHTML =
             "<strong>Leider falsch.</strong><br>Versucht es noch einmal.";
-
     }
 }
 
