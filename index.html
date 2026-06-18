@@ -22,7 +22,9 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1 { text-align: center; }
+h1 {
+    text-align: center;
+}
 
 input, button {
     width: 100%;
@@ -32,7 +34,9 @@ input, button {
     margin-bottom: 10px;
 }
 
-button { cursor: pointer; }
+button {
+    cursor: pointer;
+}
 
 #result {
     margin-top: 20px;
@@ -58,8 +62,8 @@ button { cursor: pointer; }
     border: 2px solid #333;
 }
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="container">
@@ -88,16 +92,18 @@ const codes = {
 
 <h2>📰 Neue Spur freigeschaltet</h2>
 
-<p>Ihr findet einen alten Zeitungsartikel aus dem Jahr 1999.</p>
+<p>
+Im Rahmen eurer Ermittlungen findet ihr einen alten Zeitungsartikel aus dem Jahr 1999.
+</p>
 
-<img src="max-richter-zeitung.png" class="hinweisbild" alt="Zeitungsartikel über Max Richter">
+<img src="max-richter-zeitung.png" class="hinweisbild">
 
 <h3>Ermittlungsfragen</h3>
 
 <ul>
 <li>Warum könnte Max Richter verschwunden sein?</li>
 <li>Welchen Konflikt hatte er mit der Schulleitung?</li>
-<li>Was wollte er im Bereich der Labore herausfinden?</li>
+<li>Was wollte er in den Laboren herausfinden?</li>
 <li>Hat sein Verschwinden etwas mit der Hein-Möller-Schule zu tun?</li>
 </ul>
 
@@ -113,9 +119,11 @@ Das Ziel ist oft näher, als man denkt. Sucht den stillen Nachbarn dieses Ortes.
 
 <h2>💰 Neue Spur freigeschaltet</h2>
 
-<p>Ihr findet eine interne Zahlungsanweisung der Hein-Möller-Schule.</p>
+<p>
+Im Rahmen eurer Ermittlungen stoßt ihr auf eine vertrauliche Zahlungsanweisung.
+</p>
 
-<img src="zahlung-irene-richter.png" class="hinweisbild" alt="Zahlungsanweisung an Irene Richter">
+<img src="zahlung-irene-richter.png" class="hinweisbild">
 
 <h3>Ermittlungsfragen</h3>
 
@@ -124,7 +132,7 @@ Das Ziel ist oft näher, als man denkt. Sucht den stillen Nachbarn dieses Ortes.
 <li>Ist Irene Richter mit Max Richter verwandt?</li>
 <li>Warum erhielt sie 200.000 Euro von der Schule?</li>
 <li>Was bedeutet „Vereinbarung 17/98“?</li>
-<li>Warum steht auf dem Dokument „vertraulich“?</li>
+<li>Warum wurde die Zahlung als vertraulich eingestuft?</li>
 </ul>
 
 <hr>
@@ -139,9 +147,11 @@ Wo kleine weiße Bälle über den Tisch tanzen, wächst ein Baum, der an Weihnac
 
 <h2>📰 Neue Spur freigeschaltet</h2>
 
-<p>Ihr findet zwei weitere Zeitungsartikel aus dem Jahr 1999.</p>
+<p>
+Im Rahmen eurer Ermittlungen findet ihr zwei weitere Zeitungsartikel aus dem Jahr 1999.
+</p>
 
-<img src="todesfaelle-zeitung.png" class="hinweisbild" alt="Zeitungsartikel über Todesfälle an der Hein-Möller-Schule">
+<img src="todesfaelle-zeitung.png" class="hinweisbild">
 
 <h3>Ermittlungsfragen</h3>
 
@@ -162,29 +172,61 @@ An einem Ort nur für euch treffen sich Könige, Damen und Pferde zum Kampf auf 
 
 "125": `
 <strong>Richtig!</strong><br><br>
+
+<h2>📁 Neue Spur freigeschaltet</h2>
+
+<p>
+Im Rahmen eurer Ermittlungen stoßt ihr auf eine alte Akte aus dem Archiv der Hein-Möller-Schule. Mehrere Seiten fehlen oder wurden entfernt.
+</p>
+
+<img src="korrektor-akte.png" class="hinweisbild">
+
+<h3>Ermittlungsfragen</h3>
+
+<ul>
+<li>Was ist K.O.R.R.E.K.T.O.R.?</li>
+<li>Warum wurde das Projekt als fehlgeschlagen eingestuft?</li>
+<li>Was bedeutet Bereich K-17?</li>
+<li>Warum darf nur die Schulleitung Zugang erhalten?</li>
+<li>Was soll mit „Ernährung klären“ gemeint sein?</li>
+<li>Warum sollte die Dokumentation vernichtet werden?</li>
+</ul>
+
+<hr>
+
+<p><strong>Nächster Hinweis:</strong><br>
 Vor den Hallen der Schraubendreher, Zangen und Kabel wächst die dornige Königin der Blumen. Dort findet ihr das nächste Rätsel.
+</p>
 `,
 
 "144": `
 <strong>Richtig!</strong><br><br>
+
 Ob Sonne, ob Regen, bei eisiger Kälte oder praller Hitze, eine wartet immer auf dem Hof auf Besuch. Setzt euch zu ihr und sucht nach dem nächsten Hinweis.
 `
 
 };
 
 function checkCode() {
+
     const code = document.getElementById("code").value.trim();
+
     const result = document.getElementById("result");
 
     if (codes[code]) {
+
         result.className = "success";
         result.style.display = "block";
+
         result.innerHTML = codes[code];
+
     } else {
+
         result.className = "error";
         result.style.display = "block";
+
         result.innerHTML =
-            "<strong>Leider falsch.</strong><br>Versucht es noch einmal.";
+        "<strong>Leider falsch.</strong><br>Versucht es noch einmal.";
     }
 }
 
