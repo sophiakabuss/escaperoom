@@ -34,7 +34,7 @@ input, button {
 
 button { cursor: pointer; }
 
-#result {
+#result, #ending {
     margin-top: 20px;
     padding: 15px;
     border-radius: 8px;
@@ -56,6 +56,18 @@ button { cursor: pointer; }
     max-width: 650px;
     margin: 15px 0;
     border: 2px solid #333;
+}
+
+.quizfrage {
+    margin: 20px 0;
+    padding: 12px;
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+
+.quizfrage label {
+    display: block;
+    margin: 8px 0;
 }
 </style>
 </head>
@@ -85,13 +97,9 @@ const codes = {
 
 "826": `
 <strong>Richtig!</strong><br><br>
-
 <h2>📰 Neue Spur freigeschaltet</h2>
-
 <p>Im Rahmen eurer Ermittlungen findet ihr einen alten Zeitungsartikel aus dem Jahr 1999.</p>
-
 <img src="max-richter-zeitung.png" class="hinweisbild">
-
 <h3>Ermittlungsfragen</h3>
 <ul>
 <li>Warum könnte Max Richter verschwunden sein?</li>
@@ -99,9 +107,7 @@ const codes = {
 <li>Was wollte er in den Laboren herausfinden?</li>
 <li>Hat sein Verschwinden etwas mit der Hein-Möller-Schule zu tun?</li>
 </ul>
-
 <hr>
-
 <p><strong>Nächster Hinweis:</strong><br>
 Das Ziel ist oft näher, als man denkt. Sucht den stillen Nachbarn dieses Ortes. Dort wartet das nächste Rätsel.
 </p>
@@ -109,13 +115,9 @@ Das Ziel ist oft näher, als man denkt. Sucht den stillen Nachbarn dieses Ortes.
 
 "864": `
 <strong>Richtig!</strong><br><br>
-
 <h2>💰 Neue Spur freigeschaltet</h2>
-
 <p>Im Rahmen eurer Ermittlungen stoßt ihr auf eine vertrauliche Zahlungsanweisung.</p>
-
 <img src="zahlung-irene-richter.png" class="hinweisbild">
-
 <h3>Ermittlungsfragen</h3>
 <ul>
 <li>Wer ist Irene Richter?</li>
@@ -124,9 +126,7 @@ Das Ziel ist oft näher, als man denkt. Sucht den stillen Nachbarn dieses Ortes.
 <li>Was bedeutet „Vereinbarung 17/98“?</li>
 <li>Warum wurde die Zahlung als vertraulich eingestuft?</li>
 </ul>
-
 <hr>
-
 <p><strong>Nächster Hinweis:</strong><br>
 Wo kleine weiße Bälle über den Tisch tanzen, wächst ein Baum, der an Weihnachten in vielen Häusern glänzt. Dort wartet das nächste Rätsel.
 </p>
@@ -134,13 +134,9 @@ Wo kleine weiße Bälle über den Tisch tanzen, wächst ein Baum, der an Weihnac
 
 "816": `
 <strong>Richtig!</strong><br><br>
-
 <h2>📰 Neue Spur freigeschaltet</h2>
-
 <p>Im Rahmen eurer Ermittlungen findet ihr zwei weitere Zeitungsartikel aus dem Jahr 1999.</p>
-
 <img src="todesfaelle-zeitung.png" class="hinweisbild">
-
 <h3>Ermittlungsfragen</h3>
 <ul>
 <li>Was ist mit Daniel Weber passiert?</li>
@@ -149,9 +145,7 @@ Wo kleine weiße Bälle über den Tisch tanzen, wächst ein Baum, der an Weihnac
 <li>Gibt es einen Zusammenhang zwischen Max Richter, Irene Richter und den Schülern?</li>
 <li>Warum schweigt die Schulleitung erneut?</li>
 </ul>
-
 <hr>
-
 <p><strong>Nächster Hinweis:</strong><br>
 An einem Ort nur für euch treffen sich Könige, Damen und Pferde zum Kampf auf Schwarz und Weiß. Dort wartet das nächste Rätsel.
 </p>
@@ -159,13 +153,9 @@ An einem Ort nur für euch treffen sich Könige, Damen und Pferde zum Kampf auf 
 
 "125": `
 <strong>Richtig!</strong><br><br>
-
 <h2>📁 Neue Spur freigeschaltet</h2>
-
 <p>Im Rahmen eurer Ermittlungen stoßt ihr auf eine alte Akte aus dem Archiv der Hein-Möller-Schule. Mehrere Seiten fehlen oder wurden entfernt.</p>
-
 <img src="korrektor-akte.png" class="hinweisbild">
-
 <h3>Ermittlungsfragen</h3>
 <ul>
 <li>Was ist K.O.R.R.E.K.T.O.R.?</li>
@@ -175,9 +165,7 @@ An einem Ort nur für euch treffen sich Könige, Damen und Pferde zum Kampf auf 
 <li>Was soll mit „Ernährung klären“ gemeint sein?</li>
 <li>Warum sollte die Dokumentation vernichtet werden?</li>
 </ul>
-
 <hr>
-
 <p><strong>Nächster Hinweis:</strong><br>
 Vor den Hallen der Schraubendreher, Zangen und Kabel wächst die dornige Königin der Blumen. Dort findet ihr das nächste Rätsel.
 </p>
@@ -185,39 +173,15 @@ Vor den Hallen der Schraubendreher, Zangen und Kabel wächst die dornige Königi
 
 "144": `
 <strong>Richtig!</strong><br><br>
-
 <h2>🔑 Das geheime Labor</h2>
-
-<p>
-Neben der Akte findet ihr einen alten Schlüsselbund. Einer der Schlüssel trägt die Aufschrift <strong>K-17</strong>.
-</p>
-
-<p>
-Mitten in der Nacht kehrt ihr zur Hein-Möller-Schule zurück. Das Gebäude liegt still und dunkel vor euch.
-</p>
-
-<p>
-Ihr schleicht durch Haus C, findet die verborgene Tür wieder und öffnet sie mit zitternden Händen.
-</p>
-
-<p>
-Das Treppenhaus dahinter ist leer. Eure Schritte hallen, als ihr langsam die Stufen hinuntergeht.
-</p>
-
-<p>
-Unten öffnet ihr eine weitere Tür.
-</p>
-
-<p>
-Dahinter liegt ein Labor.
-</p>
-
+<p>Neben der Akte findet ihr einen alten Schlüsselbund. Einer der Schlüssel trägt die Aufschrift <strong>K-17</strong>.</p>
+<p>Mitten in der Nacht kehrt ihr zur Hein-Möller-Schule zurück. Das Gebäude liegt still und dunkel vor euch.</p>
+<p>Ihr schleicht durch Haus C, findet die verborgene Tür wieder und öffnet sie mit zitternden Händen.</p>
+<p>Das Treppenhaus dahinter ist leer. Eure Schritte hallen, als ihr langsam die Stufen hinuntergeht.</p>
+<p>Unten öffnet ihr eine weitere Tür.</p>
+<p>Dahinter liegt ein Labor.</p>
 <img src="labor-k17.png" class="hinweisbild">
-
-<p>
-Ein sehr ungutes Gefühl überkommt euch. Überall stehen alte Geräte. Kabel hängen von der Decke. Monitore flackern. In einem Kühlschrank liegen seltsame Reste. Auf dem Boden erkennt ihr Spuren, die ihr lieber nicht genauer untersuchen wollt.
-</p>
-
+<p>Ein sehr ungutes Gefühl überkommt euch. Überall stehen alte Geräte. Kabel hängen von der Decke. Monitore flackern. In einem Kühlschrank liegen seltsame Reste.</p>
 <h3>Ermittlungsfragen</h3>
 <ul>
 <li>Was ist hier all die Jahre passiert?</li>
@@ -226,47 +190,73 @@ Ein sehr ungutes Gefühl überkommt euch. Überall stehen alte Geräte. Kabel h�
 <li>Wer oder was musste hier ernährt werden?</li>
 <li>Was befindet sich hinter der Tür K-17?</li>
 </ul>
-
-<p>
-Dann seht ihr sie: die schwere Tür am Ende des Labors.
-</p>
-
-<p>
-Auf dem Schild steht:
-<br><strong>K-17</strong>
-</p>
-
-<p>
-Der Schlüssel in eurer Hand passt.
-</p>
-
-<p>
-Als ihr näherkommt, hört ihr ein tiefes mechanisches Surren.
-</p>
-
-<p>
-Dann ein Kratzen.
-</p>
-
-<p>
-Dann eine Stimme. Leise. Heiser. Fast nur ein Flüstern:
-</p>
-
+<p>Dann seht ihr sie: die schwere Tür am Ende des Labors.</p>
+<p>Auf dem Schild steht:<br><strong>K-17</strong></p>
+<p>Der Schlüssel in eurer Hand passt.</p>
+<p>Als ihr näherkommt, hört ihr ein tiefes mechanisches Surren.</p>
+<p>Dann ein Kratzen.</p>
+<p>Dann eine Stimme. Leise. Heiser. Fast nur ein Flüstern:</p>
 <p><em>„Lass ... mich ... raus ...“</em></p>
+<hr>
+<p>Vor der Tür K-17 liegt ein letztes Arbeitsblatt.</p>
+<p>Wenn ihr herausfinden wollt, was hinter dieser Tür eingeschlossen wurde, müsst ihr den letzten Code lösen.</p>
+<p><strong>Füllt das letzte Arbeitsblatt aus und gebt den Abschlusscode ein.</strong></p>
+`,
+
+"143": `
+<strong>Abschlusscode akzeptiert.</strong><br><br>
+
+<h2>🤖 Die Tür K-17</h2>
+
+<img src="cyborg-korrektor.png" class="hinweisbild">
+
+<p>Du drehst den Schlüssel in der Tür um.</p>
+<p>Widerwillig öffnet sie sich.</p>
+<p>Dahinter steht ein Cyborg.</p>
+<p>Eine Weile lang sieht er dich nur an.</p>
+<p>Dann hebt er seine mechanischen Hände.</p>
+<p><strong>„Eindringling erkannt.“</strong></p>
+<p><strong>„Korrektur erforderlich.“</strong></p>
+<p><strong>„Der Eindringling muss beseitigt werden.“</strong></p>
+<p>Er greift nach dir. Du weichst zurück. Metallische Finger streifen deine Kleidung.</p>
+<p>Dir wird klar: Wenn du jetzt nicht fliehst, wirst du enden wie die Schüler, die damals in der Hein-Möller-Schule verschwanden.</p>
 
 <hr>
 
-<p>
-Vor der Tür K-17 liegt ein letztes Arbeitsblatt.
-</p>
+<h2>Wirst du entkommen?</h2>
+<p>Beantworte die vier Fragen. Je nachdem, wie viele Antworten richtig sind, erwartet dich eines von vier Enden.</p>
 
-<p>
-Wenn ihr herausfinden wollt, was hinter dieser Tür eingeschlossen wurde, müsst ihr den letzten Code lösen.
-</p>
+<div class="quizfrage">
+<p><strong>Frage 1:</strong> Was hat es mit den 200.000 Euro auf sich, die Irene Richter ausgezahlt bekommen hat?</p>
+<label><input type="radio" name="q1" value="0"> Irene Richter hat Geld für ein Cyborg-Forschungsprojekt bekommen.</label>
+<label><input type="radio" name="q1" value="0"> Irene Richter hat Geld dafür bekommen, dass sie ihren Bruder für die Hein-Möller-Schule gewonnen hat.</label>
+<label><input type="radio" name="q1" value="1"> Irene Richter ist die Ehefrau von Max Richter und bekam Schweigegeld.</label>
+</div>
 
-<p>
-<strong>Füllt das letzte Arbeitsblatt aus und gebt den Abschlusscode ein.</strong>
-</p>
+<div class="quizfrage">
+<p><strong>Frage 2:</strong> Was ist zwischen Max Richter und der Schulleitung passiert?</p>
+<label><input type="radio" name="q2" value="0"> Max Richter hat sich geweigert, am Projekt K-17 teilzunehmen.</label>
+<label><input type="radio" name="q2" value="0"> Max Richter hat in der Cyborg-Forschung versagt.</label>
+<label><input type="radio" name="q2" value="1"> Max Richter war unbequem, drohte, das Projekt öffentlich zu machen, und wurde neutralisiert.</label>
+</div>
+
+<div class="quizfrage">
+<p><strong>Frage 3:</strong> Was war vermutlich die ursprüngliche Funktion des K.O.R.R.E.K.T.O.R.?</p>
+<label><input type="radio" name="q3" value="0"> Die Schule bewachen und jeden Eindringling ausschalten.</label>
+<label><input type="radio" name="q3" value="1"> Korrekturen durchführen, Aufgaben erstellen und Schüler bei der Arbeit unterstützen.</label>
+<label><input type="radio" name="q3" value="0"> Hausmeistertätigkeiten und technische Arbeiten übernehmen.</label>
+</div>
+
+<div class="quizfrage">
+<p><strong>Frage 4:</strong> Wer ist der Cyborg hinter der Tür K-17?</p>
+<label><input type="radio" name="q4" value="0"> Ein Cyborg, den Max Richter heimlich im Labor entworfen hat.</label>
+<label><input type="radio" name="q4" value="0"> Einer der Schüler, die damals umgekommen sind.</label>
+<label><input type="radio" name="q4" value="1"> Der Cyborg ist Max Richter.</label>
+</div>
+
+<button onclick="showEnding()">Ende anzeigen</button>
+
+<div id="ending"></div>
 `
 
 };
@@ -284,6 +274,31 @@ function checkCode() {
         result.style.display = "block";
         result.innerHTML =
             "<strong>Leider falsch.</strong><br>Versucht es noch einmal.";
+    }
+}
+
+function showEnding() {
+    let score = 0;
+
+    for (let i = 1; i <= 4; i++) {
+        const answer = document.querySelector('input[name="q' + i + '"]:checked');
+        if (answer && answer.value === "1") {
+            score++;
+        }
+    }
+
+    const ending = document.getElementById("ending");
+    ending.style.display = "block";
+    ending.className = "success";
+
+    if (score === 4) {
+        ending.innerHTML = "<h2>Ende 1</h2><p>4 von 4 richtig.</p>";
+    } else if (score === 3) {
+        ending.innerHTML = "<h2>Ende 2</h2><p>3 von 4 richtig.</p>";
+    } else if (score === 2) {
+        ending.innerHTML = "<h2>Ende 3</h2><p>2 von 4 richtig.</p>";
+    } else {
+        ending.innerHTML = "<h2>Ende 4</h2><p>0 oder 1 von 4 richtig.</p>";
     }
 }
 
